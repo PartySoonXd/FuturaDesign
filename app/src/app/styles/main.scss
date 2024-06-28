@@ -1,0 +1,20 @@
+@import "global.scss";
+@import "mixins.scss";
+@import "vars.scss";
+@import "normalize.css";
+
+@import "../lib/Header/header.scss";
+@import "../lib/Footer/footer.scss";
+@import "../lib/ButtonLink/button-link.scss";
+@import "../lib/Notification/notification.scss";
+
+@import "../ui/Home/Intro/intro.scss";
+@import "../ui/Home/About/about.scss";
+@import "../ui/Home/Portfolio/portfolio.scss";
+@import "../ui/Home/Services/services.scss";
+@import "../ui/Home/Contacts/contacts.scss";
+
+@import "../ui/About/Approach/approach.scss";
+@import "../ui/About/Team/team.scss";
+
+@import "../ui/Portfolio/image-gallery.scss";

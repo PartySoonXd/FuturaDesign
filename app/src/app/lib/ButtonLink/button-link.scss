@@ -1,0 +1,97 @@
+.button-link {
+    display: flex;
+    max-width: 300px;
+    width: 100%;
+
+    position: relative;
+    
+    &:hover {
+        .button-link-text {
+            width: 220px;
+            transition: width .5s ease;
+        }
+        .button-link-decoration {
+            width: 105px;
+            transition: width .5s ease;
+            svg {
+                transform: rotateZ(-180deg);
+                transition: transform .3s ease;
+            }
+        }
+    }
+    
+    &-text {
+        width: 235px;
+        
+        padding: 14px 0 13px 20px;
+        box-sizing: border-box;
+        
+        background: $black;
+        color: $white;
+        
+        text-transform: uppercase;
+        
+        clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 0 100%);
+        
+        transition: width .5s ease;
+    }
+    &-decoration {
+        display: flex;
+        width: 90px;
+        height: 50px;
+        
+        position: absolute;
+        right: 0;
+        justify-content: center; 
+        align-items: center;
+        
+        
+        background: $gold;
+        
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%);
+
+        transition: width .5s ease;
+        svg {
+            margin-left: 20px; 
+
+            transform: rotateZ(0);
+            transition: transform .3s ease;
+        }
+    }
+    @include media($xs-breakpoint) {
+        &:hover {
+            .button-link-text {
+                width: 170px;
+                transition: width .5s ease;
+            }
+            .button-link-decoration {
+                width: 105px;
+                transition: width .5s ease;
+                svg {
+                    transform: rotateZ(-180deg);
+                    transition: transform .3s ease;
+                }
+            }
+        }
+        &-text {
+            width: 185px;
+        }
+        max-width: 250px;
+    }
+    @include media($xxs-breakpoint) {
+        max-width: 210px;
+        &-text {
+            width: 145px;
+
+            padding: 14px 0 13px 10px;            
+
+            font-size: 16px;
+
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%);
+        }
+        &-decoration {
+            width: 80px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%);
+        }
+    }
+}

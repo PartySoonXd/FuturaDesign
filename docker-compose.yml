@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  couch:
+    container_name: futura_db
+    image: couchdb:latest
+    volumes:
+      - couch_data:/opt/couchdb/data
+    ports:
+      - 5984:5984
+    restart: on-failure
+    environment:
+      COUCHDB_USER: futura
+      COUCHDB_PASSWORD: Admin24
+  admin:
+    build: /admin 
+    container_name: futura_admin
+    env_file: /admin/.env.local
+    ports:
+      - 4000:80
+    depends_on:
+      - client
+    restart: on-failure
+    command: nginx -g 'daemon off;'
+
+  client:
+    build: /app
+    container_name: futura_client
+    env_file: /app/.env.local
+    ports:
+      - 5000:5000
+    restart: on-failure
+volumes:
+  couch_data:

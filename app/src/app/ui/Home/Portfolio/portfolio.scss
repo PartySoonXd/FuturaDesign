@@ -1,0 +1,150 @@
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    padding: 80px 60px 40px 60px;
+    box-sizing: border-box;
+
+    background: $black;
+    &-title {
+        align-self: flex-start;
+
+        color: $white;
+    }
+    &-items {
+        display: flex;
+        flex-grow: 1;
+
+        margin-top: 20px;
+        &-container {
+            display: flex;
+            flex-direction: column;
+
+            margin: auto;
+        }
+    }
+    &-item {
+        display: flex;
+        line-height: 0;
+
+        cursor: pointer;
+        &-container {
+            position: relative;
+            &:hover {
+                .portfolio-item__title,
+                .portfolio-item__button {
+                    opacity: 0;
+                    transition: opacity .6s ease;
+                }
+            }
+        }
+        &__title {
+            display: flex;
+            width: 100%;
+            height: 40px;
+            
+            z-index: 1;
+            position: absolute;
+            
+            align-items: center;
+            justify-content: center;
+            
+            color: $white;
+            background: rgba($black, .7);
+            
+            font-family: Quicksand;
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 25px;
+            text-transform: uppercase;
+
+            opacity: 1;
+            transition: opacity .6s ease;
+        }
+        &__button {
+            width: 100px;
+            height: 30px;
+            
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+            
+            background: rgba($black, .7);
+            
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+
+            opacity: 1;
+            transition: opacity .6s ease;
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 35px;
+                transform: translateY(-50%);
+            }
+        }
+        &__image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            
+            z-index: 0;
+            
+            transform: scale(1);
+            transition: transform .6s ease;
+            &:hover {
+                transform: scale(1.03);
+                transition: transform 1s ease;
+            }
+        }
+        &.kitchen, &.bathroom {
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%); 
+            .portfolio-item__button {
+                svg {
+                    left: 25px;
+                }
+            }
+        }
+        &.bedroom, &.lounge {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%); 
+        }
+        &.wardrobe {
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%); 
+        }
+    }
+    @include media($l-breakpoint) {
+        width: 100%;
+    }
+    @include media($m-breakpoint) {
+        padding: 60px 30px 20px 30px;
+    }
+    @include media($s-breakpoint) {
+        padding: 60px 15px 20px 15px;
+        &-items {
+            margin: 0 -5px;
+            &-container {
+                margin-top: 20px;
+            }
+        }
+        &-item {
+            &.kitchen, &.bedroom, &.bathroom, &.lounge, &.wardrobe {
+                margin: 5px;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+    }
+    @include media($xs-breakpoint) {
+        padding: 60px 10px 20px 10px;
+        &-items {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &-item {
+            flex: 1 1 150px;
+            justify-content: center;
+            &.bedroom, &.lounge, &.bathroom {
+                flex: 1 1 250px;
+            }
+        }
+    }
+}

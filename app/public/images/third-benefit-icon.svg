@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="32" height="32">
+	<title>creativity</title>
+	<defs>
+		<image  width="112" height="112" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAABwAQMAAAD8LmYIAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA////pdmf3QAAAAJ0Uk5TAP9bkSK1AAABi0lEQVR4nLXUUW7DIAwGYEeZlkduUHYTrrJj7I1IvViqXoQj8JgHBPNvB8K6dOqk1i/tFwlsExMiiXGhPqbwElrlutEpU+UMDo0LON6wrrUBnCqNMlZG0FTyc27Q1Ep0la3UFLy/hhbAxRxSq3WtpZV8Rl+t3VK6hsmVkjoWjl0juKUNslQWG07KFVoQvzMNWXaSvTyzzOTBLH8H3qNI8I5gHJSzYZJPo3JxGRWlSRkcKjPJKKOLchZWuep57JQqv5wynbRqr8zUuNqd2NXsHSPn1DhUzo2X8w9er43o4HxppwVO4Q9mE30l58h29fW9MJNdXU+Xeq4OTYM+M6PP3EPgt8xJmHxkTO7iiPoWDyhbBX3oM9XnU5f3cY6Vyz0md49D5fwAqZIO6ZX5kDwqwm1U+EyFOkjjTpSFIRTqEGJEhTqiGGChDLCMt1DGW4ZfuA0/Xw1wuxq4OOB2cXCdQL1WculA/GrVI7hQC3AXff7ie8eP5N7oJXHzGfkXrXxFWhgZ2udE/zF7Er8B3n8mL6GwQ4oAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="8" y="8"/>
+</svg>
