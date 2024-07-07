@@ -1,5 +1,5 @@
 <picture>
-  <img alt="HistArts logo" src="https://github.com/PartySoonXd/FuturaDesign/blob/master/app/public/images/Logo.svg">
+  <img alt="Futura logo" src="https://github.com/PartySoonXd/FuturaDesign/blob/master/app/public/images/Logo.svg">
 </picture>
 
 ## Description
