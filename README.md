@@ -1,6 +1,4 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/PartySoonXd/HistArts/blob/master/client/src/assets/images/Logo.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/PartySoonXd/HistArts/blob/master/client/src/assets/images/Logo-dark.svg">
   <img alt="HistArts logo" src="https://github.com/PartySoonXd/FuturaDesign/blob/master/app/public/images/Logo.svg">
 </picture>
 
