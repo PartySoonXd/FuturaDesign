@@ -15,3 +15,45 @@ FuturaDesign it is the landing page for interior design studio that was made as 
 - MUI
 ### Database
 - CouchDB
+
+## Run locally
+1. Clone the project
+```bash
+git clone https://github.com/PartySoonXd/FuturaDesign.git
+```
+2. Go to the project directory
+```bash
+cd FuturaDesign
+```
+3. Install dependencies
+```bash
+npm install
+```
+4. Go to the app directory
+```bash
+cd app
+```
+5. Install dependencies
+```bash
+npm install
+```
+6. Rename .env.example to .env.local
+7. Go to the admin directory
+```bash
+cd admin
+```
+8. Install dependencies
+```bash
+npm install
+```
+9. Rename .env.example to .env.local
+10. Run app from root directory
+```bash
+npm run dev
+```
+After this you can open apps in your browser
+- Client - http://localhost:5000
+- Admin - http://localhost:4000
+
+## Feeback
+Vladislav Belomestnykh - vladislav.webdeveloper@gmail.com
