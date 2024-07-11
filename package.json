@@ -1,0 +1,16 @@
+{
+  "name": "futuradesign",
+  "version": "1.0.0",
+  "description": "<picture>\r   <img alt=\"Futura logo\" src=\"https://github.com/PartySoonXd/FuturaDesign/blob/master/app/public/images/Logo.svg\">\r </picture>",
+  "main": "index.js",
+  "scripts": {
+    "admin": "cd admin & npm run dev",
+    "app": "cd app & npm run dev",
+    "dev": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
