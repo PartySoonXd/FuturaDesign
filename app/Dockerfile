@@ -43,5 +43,3 @@ COPY --from=builder /app/next/public ./public
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/next/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/next/.next/static ./.next/static
-
-CMD [ "node", "server.js"]

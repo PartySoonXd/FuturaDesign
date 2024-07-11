@@ -41,6 +41,3 @@ COPY --from=build /app/admin/build ./dist
 FROM nginx:latest
 COPY --from=final /app/admin/dist /usr/share/nginx/html/ 
 COPY --from=final /app/admin/nginx.conf /etc/nginx/conf.d/nginx.conf
-
-CMD ["nginx", "-g", "daemon off;"]
-

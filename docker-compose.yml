@@ -4,20 +4,19 @@ services:
   couch:
     container_name: futura_db
     image: couchdb:latest
+    env_file: /app/.env.local
     volumes:
       - couch_data:/opt/couchdb/data
     ports:
       - 5984:5984
     restart: on-failure
-    environment:
-      COUCHDB_USER: futura
-      COUCHDB_PASSWORD: Admin24
+
   admin:
     build: /admin 
     container_name: futura_admin
     env_file: /admin/.env.local
     ports:
-      - 4000:80
+      - 3000:80
     depends_on:
       - client
     restart: on-failure
@@ -28,7 +27,8 @@ services:
     container_name: futura_client
     env_file: /app/.env.local
     ports:
-      - 5000:5000
+      - 4000:4000
     restart: on-failure
+    command: node server.js
 volumes:
   couch_data:
