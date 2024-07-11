@@ -6,7 +6,7 @@
   "scripts": {
     "admin": "cd admin & npm run dev",
     "app": "cd app & npm run dev",
-    "dev": "concurrently \"npm run admin\" \"npm run app\" \"npm run client\""
+    "dev": "concurrently \"npm run admin\" \"npm run app\""
   },
   "author": "",
   "license": "ISC",
