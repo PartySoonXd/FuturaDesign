@@ -52,8 +52,8 @@ npm install
 npm run dev
 ```
 After this you can open apps in your browser
-- Client - http://localhost:5000
-- Admin - http://localhost:4000
+- Client - http://localhost:4000
+- Admin - http://localhost:3000
 
 ## Feeback
 Vladislav Belomestnykh - vladislav.webdeveloper@gmail.com
