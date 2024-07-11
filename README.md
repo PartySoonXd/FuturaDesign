@@ -47,7 +47,10 @@ cd admin
 npm install
 ```
 9. Rename .env.example to .env.local
-10. Run app from root directory
+10. Install [couchDB](https://couchdb.apache.org) on your PC.
+  - In process of installation you need to set username(default: couch) and password(default: root) **similar with values in app/.env.local**
+11. Go to http://localhost:5984/_utils. Auth and create non-partitioned database with name(default: futura_db) **similar with value in app/.env.local**
+12. Run app from root directory
 ```bash
 npm run dev
 ```
