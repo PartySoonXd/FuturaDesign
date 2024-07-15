@@ -52,7 +52,7 @@ npm install
 ```bash
 npm run dev
 ```
-11. Go to the [configuration](https://github.com/PartySoonXd/FuturaDesign/README.md#configuration)
+11. Go to the [configuration](#configuration)
 
 After configuration you can open apps in your browser
 - Client - http://localhost:4000
