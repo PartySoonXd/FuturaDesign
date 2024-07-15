@@ -4,6 +4,7 @@
 
 ## Description
 FuturaDesign it is the landing page for interior design studio that was made as a portfolio project. Here you can find interior design services for your home and consult about your future interior. This website is created for people who want cool and modern interior in their home. As a result of this project I am improved at working with **SSR on NextJS**, **SCSS**, **React-admin** and **couchDB**.
+
 ## Stack
 ### Frontend
 - NextJS
@@ -47,18 +48,18 @@ cd admin
 npm install
 ```
 9. Rename .env.example to .env.local
-10. Install [couchDB](https://couchdb.apache.org) on your PC.
-  - In process of installation you need to set username(default: couch) and password(default: root) ***similar with values in app/.env.local***
-11. Go to http://localhost:5984/_utils. Auth and create non-partitioned database with name(default: futura_db) ***similar with value in app/.env.local***
-12. Run app from root directory
+10. Run app from root directory
 ```bash
 npm run dev
 ```
-After this you can open apps in your browser
-- Client - http://localhost:4000
-- Admin - http://localhost:3000
+11. Go to the [configuration](https://github.com/PartySoonXd/FuturaDesign/edit/master/README.md#configuration)
+
+After configuration you can open apps in your browser
+- Client - http://localhost:4000
+- Admin - http://localhost:3000
+
 ## Run with docker
-***You need to have docker on your computer***
+**You need to have docker on your computer**
 1. Go to the admin directory
 ```bash
 cd admin
@@ -69,17 +70,25 @@ cd admin
 cd app
 ```
 4. Rename .env.example to .env.local
-5. In .env.local change value of ```COUCHDB_HOST``` variable into ```couch```
-6. Run docker-compose from root directory
+5. Run docker-compose from root directory
 ```bash
 docker-compose up
 ```
-7. When docker is running open http://localhost:5984/_utils. Auth using username(default: couch) and password(default: root) from app/.env.local
-8. Create non-partitioned database with name(default: futura_db) from app/.env.local
+6. Go to the [configuration](https://github.com/PartySoonXd/FuturaDesign/edit/master/README.md#configuration)
 
-After this you can open apps in your browser
-- Client - http://localhost:4000
-- Admin - http://localhost:3000
+After configuration you can open apps in your browser
+- Client - http://localhost:4000
+- Admin - http://localhost:3000
+
+## Configuration
+### Locally
+1. Install [couchDB](https://couchdb.apache.org/) on your PC.
+- In process of installation you need to set username(default: couch) and password(default: root) ***similar with values in `app/.env.local`***
+1. Go to [http://localhost:5984/_utils](http://localhost:5984/_utils). Auth and create ***non-partitioned*** database with name(default: futura_db) ***similar with value in `app/.env.local`***
+### With docker
+1. In `app/.env.local` change value of `COUCHDB_HOST` variable into `couch`
+2. Open [http://localhost:5984/_utils](http://localhost:5984/_utils). Auth using username(default: couch) and password(default: root) from `app/.env.local`
+8. Create ***non-partitioned*** database with name(default: futura_db) from `app/.env.local`
 
 ## Feeback
 Vladislav Belomestnykh - vladislav.webdeveloper@gmail.com
