@@ -81,7 +81,7 @@ After configuration you can open apps in your browser
 ## Configuration
 ### Locally
 1. Install [couchDB](https://couchdb.apache.org/) on your PC.
-- In process of installation you need to set username(default: couch) and password(default: root) ***similar with values in `app/.env.local`***
+    - In process of installation you need to set username(default: couch) and password(default: root) ***similar with values in `app/.env.local`***
 2. Go to [http://localhost:5984/_utils](http://localhost:5984/_utils). Auth and create ***non-partitioned*** database with name(default: futura_db) ***similar with value in `app/.env.local`***
 ### With docker
 1. In `app/.env.local` change value of `COUCHDB_HOST` variable into `couch`
