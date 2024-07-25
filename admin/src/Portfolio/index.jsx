@@ -29,7 +29,6 @@ const Portfolio = () => {
         setPreview(blob)
     }
     const fetchImages = async (category) => {
-        setCategory(category)
         await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get?category=${category}`, config).then(data => {
             setImages(data.data.files)
         })
@@ -38,7 +37,7 @@ const Portfolio = () => {
         try {
             e.preventDefault()
             const formData = new FormData(e.currentTarget)
-            await axios.post("${process.env.REACT_APP_API_URL}/api/portfolio/add", formData, config).then(data => {
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/portfolio/add`, formData, config).then(data => {
                 setIsActive(true)
                 setTitle("Success!")
                 setText("Image was added")
@@ -76,7 +75,13 @@ const Portfolio = () => {
                 <div>
                     <h2 className="portfolio-subtitle">Add new image</h2>
                     <form method="post" onSubmit={e => addImage(e)} encType="multipart/form-data" className="portfolio-form">
-                        <select name="category" defaultValue="category" id="category" className="portfolio-category-selector">
+                        <select 
+                            name="category" 
+                            defaultValue="category" 
+                            id="category" 
+                            className="portfolio-category-selector" 
+                            onChange={e => setCategory(e.target.value)}
+                        >
                             <option value="category" className="portfolio-category-option" disabled>Category</option>
                             <option value="wardrobe" className="portfolio-category-option">Wardrobe</option>
                             <option value="lounge" className="portfolio-category-option">Lounge</option>
