@@ -16,7 +16,7 @@ const Images = ({category}) => {
                     setImages(images.data.files)
                 }
             } catch (error) {
-                
+                return error
             }
         }
         getImages()
@@ -42,6 +42,7 @@ const Images = ({category}) => {
                                 ease: [0.645, 0.045, 0.355, 1],
                             }}
                             viewport={{once: true, amount: .4}}
+                            key={i}
                         >
                             <Image 
                                 className='images-img' 
@@ -49,7 +50,6 @@ const Images = ({category}) => {
                                 width="400" 
                                 height="250" 
                                 alt={`${category} image`}
-                                key={i}
                             />
                         </motion.div>
                     )
