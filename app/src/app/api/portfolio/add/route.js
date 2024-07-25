@@ -3,11 +3,6 @@ import path from "path"
 import fs from 'fs'
 import { NextResponse } from 'next/server';
 
-// export const config = {
-//     api: {
-//         bodyParser: false
-//     }
-// }
 
 export async function POST(request) {
     try {
@@ -20,8 +15,13 @@ export async function POST(request) {
         }
 
         const fileName = uuidv4() + ".jpeg"
-        const filePath = path.resolve("public", 'images', 'portfolio', category, fileName)
-        fs.writeFile(filePath, Buffer.from(await file.arrayBuffer()), (err) => {
+        const folderPath = path.resolve("public", 'images', 'portfolio', category)
+
+        if (!fs.existsSync(folderPath)){
+            fs.mkdirSync(folderPath, { recursive: true });
+        }
+        
+        fs.writeFile(path.resolve(folderPath, fileName), Buffer.from(await file.arrayBuffer()), (err) => {
             if (err) throw err;
         }); 
 

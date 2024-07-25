@@ -11,6 +11,10 @@ export async function GET(req) {
         const category = searchParams.get('category')
 
         const folderPath = path.resolve('public', 'images', 'portfolio', category)
+
+        if (!fs.existsSync(folderPath)){
+            return NextResponse.json({files})
+        }
         const fileNames = fs.readdirSync(folderPath)
         fileNames.forEach(item => {
             const file = fs.readFileSync(folderPath + "/" + item)
@@ -19,6 +23,6 @@ export async function GET(req) {
 
         return NextResponse.json({files})
     } catch (error) {
-        console.log(error)        
+        throw error        
     }
 }
