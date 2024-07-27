@@ -28,26 +28,14 @@ cd FuturaDesign
 ```bash
 npm install
 ```
-4. Go to the app directory
+4. Install dependencies for applications
 ```bash
-cd app
+npm run deps
 ```
-5. Install dependencies
-```bash
-npm install
-```
-6. Rename .env.example to .env.local
-7. Go to the admin directory
-```bash
-cd admin
-```
-8. Install dependencies
-```bash
-npm install
-```
-9. Rename .env.example to .env.local
-10. Go to the [configuration](#configuration)
-11. Run app from root directory
+5. Go to the `app` directory and rename **.env.example** to **.env.local**
+6. Go to the `admin` directory and rename **.env.example** to **.env.local**
+7. Go to the [configuration](#configuration)
+8. Run app from root directory
 ```bash
 npm run dev
 ```
@@ -58,23 +46,19 @@ After this you can open apps in your browser
 
 ## Run with docker
 **You need to have docker on your computer**
-1. Go to the admin directory
+1. Clone the project
 ```bash
-cd admin
+git clone https://github.com/PartySoonXd/FuturaDesign.git
 ```
-2. Rename .env.example to .env.local
-3. Go to the app directory
-```bash
-cd app
-```
-4. Rename .env.example to .env.local
+2. Go to the `app` directory and rename **.env.example** to **.env.local**
+3. Go to the `admin` directory and rename **.env.example** to **.env.local**
+4. Go to the [configuration](#configuration)
 5. Run docker-compose from root directory
 ```bash
 docker-compose up
 ```
-6. Go to the [configuration](#configuration)
 
-After configuration you can open apps in your browser
+After this you can open apps in your browser
 - Client - http://localhost:4000
 - Admin - http://localhost:3000
 
@@ -82,11 +66,12 @@ After configuration you can open apps in your browser
 ### Locally
 1. Install [couchDB](https://couchdb.apache.org/) on your PC.
     - In process of installation you need to set username(default: couch) and password(default: root) ***similar with values in `app/.env.local`***
-2. Go to [http://localhost:5984/_utils](http://localhost:5984/_utils). Auth and create ***non-partitioned*** database with name(default: futura_db) ***similar with value in `app/.env.local`***
+2. Init database from root directory
+```bash
+npm run db
+```
 ### With docker
 1. In `app/.env.local` change value of `COUCHDB_HOST` variable into `couch`
-2. Open [http://localhost:5984/_utils](http://localhost:5984/_utils). Auth using username(default: couch) and password(default: root) from `app/.env.local`
-3. Create ***non-partitioned*** database with name(default: futura_db) from `app/.env.local`
 
 ## Feeback
 Vladislav Belomestnykh - vladislav.webdeveloper@gmail.com
