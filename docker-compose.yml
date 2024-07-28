@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   couch:
     container_name: futura_db
@@ -10,15 +8,15 @@ services:
     ports:
       - 5984:5984
     restart: on-failure
-
+  
   admin:
     build: /admin 
     container_name: futura_admin
     env_file: /admin/.env.local
+    depends_on: 
+      - client
     ports:
       - 3000:80
-    depends_on:
-      - client
     restart: on-failure
     command: nginx -g 'daemon off;'
 
@@ -28,6 +26,8 @@ services:
     env_file: /app/.env.local
     ports:
       - 4000:4000
+    depends_on:
+      - couch
     restart: on-failure
     command: node server.js
 volumes:
