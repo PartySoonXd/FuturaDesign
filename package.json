@@ -4,6 +4,8 @@
   "description": "<picture>\r   <img alt=\"Futura logo\" src=\"https://github.com/PartySoonXd/FuturaDesign/blob/master/app/public/images/Logo.svg\">\r </picture>",
   "main": "index.js",
   "scripts": {
+    "deps": "concurrently \"cd admin & npm install\" \"cd app & npm install\"",
+    "db": "cd app & npm run db",
     "admin": "cd admin & npm run dev",
     "app": "cd app & npm run dev",
     "dev": "concurrently \"npm run admin\" \"npm run app\""
