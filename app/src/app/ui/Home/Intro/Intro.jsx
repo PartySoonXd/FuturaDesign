@@ -15,10 +15,6 @@ const Intro = () => {
     const [isPause, setIsPause] = useState(false)
 
     let timer
-    
-    // useEffect(() => {
-    //     slideHandler()
-    // }, [])
 
     const slideHandler = () => {
         clearTimeout(timer)
