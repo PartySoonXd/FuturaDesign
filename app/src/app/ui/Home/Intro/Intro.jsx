@@ -32,9 +32,8 @@ const Intro = () => {
         setIsPause(true)
         clearTimeout(timer)
     }
-    const onClickEnd = (e, data) => {
-        if (data === "mobile") {
-            e.stopPropogation()
+    const onClickEnd = (device) => {
+        if (device === "mobile") {
             return
         } else {
             setIsPause(false)
@@ -51,7 +50,7 @@ const Intro = () => {
                 onMouseDown={onClickStart} 
                 onMouseUp={onClickEnd} 
                 onTouchStart={onClickStart}
-                onTouchCancel={(e) => onClickEnd(e, "mobile")} 
+                onTouchCancel={() => onClickEnd("mobile")} 
             >
                 <motion.h1 
                     className="home-page-intro-title"
