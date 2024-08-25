@@ -141,8 +141,15 @@ a {
 		line-height: 48px;
 
 		&::before {
+			left: -5px;	
+		}
+	}
+	@include media($s-breakpoint) {
+		font-size: 32px;
+		line-height: 48px;
+
+		&::before {
 			left: -5px;
-			
 		}
 	}
 	
