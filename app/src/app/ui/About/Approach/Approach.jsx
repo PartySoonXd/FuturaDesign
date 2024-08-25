@@ -43,7 +43,7 @@ const Approach = () => {
                     variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{once: true, amount: .4}}
+                    viewport={{once: true, amount: .25}}
                 >
                     <ApproachItem 
                         text="Futura is an interior design company that offers its clients unique and innovative solutions to create stylish and functional spaces. Combining creativity and a professional     approach, we strive to turn the most daring ideas into reality."
