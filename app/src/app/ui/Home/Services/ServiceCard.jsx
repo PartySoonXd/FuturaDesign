@@ -3,7 +3,13 @@ import {motion} from "framer-motion"
 
 const ServiceCard = ({image, title, desription, anim}) => {
     return (
-        <motion.li className="service-card" key={title} variants={anim}>
+        <motion.li 
+            className="service-card" 
+            key={title} 
+            initial={anim.hidden}
+            whileInView={anim.show} 
+            viewport={{once: true, amount: .35}}
+        >
             <Image src={image} className="service-card-image" alt={title}/>
             <h3 className="service-card-title h3">{title}</h3>
             <div className="service-card-description">

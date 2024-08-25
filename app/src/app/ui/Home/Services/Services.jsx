@@ -14,27 +14,17 @@ const Services = ({element}) => {
     if (element === "services") {
         ref.current?.scrollIntoView({behavior: 'smooth'});
     }
-    const cardsContainer = {
-        hidden: {opacity: 0},
-        show: { 
-            opacity: 1,
-            transition: {
-                delayChildren: .4,
-                staggerChildren: .1,
-            }
-        }
-    }
     const cardItem = {
         hidden: {
             opacity: 0,
-            y: '50px'
+            y: '80px'
         },
         show: { 
             y: 0,
             opacity: 1,
             transition: {
                 ease: [.24,1.74,.77,1.01],
-                duration: .4,
+                duration: .5,
             }
         }
     }
@@ -50,13 +40,7 @@ const Services = ({element}) => {
                 >
                     Services
                 </motion.h2>
-                <motion.ul 
-                    className="service-cards"
-                    variants={cardsContainer}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{once: true, amount: .35 }}
-                >
+                <motion.ul className="service-cards">
                     <ServiceCard 
                         image={firstService} 
                         title="Individual interior design" 
