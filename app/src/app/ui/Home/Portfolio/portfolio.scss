@@ -15,7 +15,7 @@
     &-items {
         display: flex;
         flex-grow: 1;
-
+        
         margin-top: 20px;
         &-container {
             display: flex;
@@ -25,11 +25,17 @@
         }
     }
     &-item {
-        display: flex;
-        line-height: 0;
+        flex-grow: 1;
+        a {
+            display: flex;
+            width: 100%;
+            height: 100%;
 
+            line-height: 0;
+        }
         cursor: pointer;
         &-container {
+            width: 100%;
             position: relative;
             &:hover {
                 .portfolio-item__title,
@@ -143,7 +149,7 @@
             flex: 1 1 150px;
             justify-content: center;
             &.bedroom, &.lounge, &.bathroom {
-                flex: 1 1 250px;
+                flex: 1 1 265px;
             }
         }
     }
