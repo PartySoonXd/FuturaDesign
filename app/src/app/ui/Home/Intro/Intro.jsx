@@ -32,9 +32,14 @@ const Intro = () => {
         setIsPause(true)
         clearTimeout(timer)
     }
-    const onClickEnd = () => {
-        setIsPause(false)
-        slideHandler()
+    const onClickEnd = (e, data) => {
+        if (data === "mobile") {
+            e.stopPropogation()
+            return
+        } else {
+            setIsPause(false)
+            slideHandler()
+        }
     }
     if (!isPause) {
         timer = setTimeout(slideHandler, 5000)
@@ -43,10 +48,10 @@ const Intro = () => {
         <div className="home-page-intro">
             <div 
                 className="container"
-                onMouseDownCapture={onClickStart} 
-                onClick={onClickEnd} 
-                onTouchStart={onClickStart} 
-                onTouchEnd={onClickEnd} 
+                onMouseDown={onClickStart} 
+                onMouseUp={onClickEnd} 
+                onTouchStart={onClickStart}
+                onTouchCancel={(e) => onClickEnd(e, "mobile")} 
             >
                 <motion.h1 
                     className="home-page-intro-title"
