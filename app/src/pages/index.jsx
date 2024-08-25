@@ -13,7 +13,7 @@ const HomePage = () => {
     return (
         <PageLayout>
             <Intro/>
-            <div className="about-and-portfolio-container" style={{display: "flex", margin: '0 -60px', flexWrap: "wrap"}}>
+            <div className="about-and-portfolio-container" style={{display: "flex", margin: '0 -60px', flexWrap: "wrap", overflow: "hidden"}}>
                 <About/>
                 <Portfolio/>
             </div>
