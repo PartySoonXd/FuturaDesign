@@ -2,7 +2,7 @@ services:
   couch:
     container_name: futura_db
     image: couchdb:latest
-    env_file: ./app/.env.local
+    env_file: ./server/.env.local
     volumes:
       - couch_data:/opt/couchdb/data
     ports:
