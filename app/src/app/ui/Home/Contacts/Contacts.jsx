@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useRef, useState } from "react";
 
 import ContactForm from "./ContactForm"
 import { Notification } from "@/app/lib/Notification/Notification";
+import { apiHost } from "@/app/http";
 
 const Contacts = ({element}) => {
     const [isActive, setIsActive] = useState(false)
@@ -18,13 +18,22 @@ const Contacts = ({element}) => {
     const formHandler = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
-        await axios.post("/api/feedback/send", formData).then(data => {
+        const data = Object.fromEntries(formData)
+
+        if (data.name === "" || data.email === "" || data.message === "") {
             setTitle("Success")
-            setText(data.data.message)
+            setText('Please fill all required fields.')
+            setIsActive(true)
+            return
+        }
+
+        await apiHost.post("/feedback/create", data).then(({data}) => {
+            setTitle("Success")
+            setText(data.message)
             setIsActive(true)
         }).catch(error => {
             setTitle("Error")
-            setText(error.response.data.error)
+            setText("Something wrong! Try later.")
             setIsActive(true)
         })
     }

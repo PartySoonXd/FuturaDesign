@@ -1,9 +1,13 @@
-import axios from "axios"
+import { apiHost } from "./http"
 
 export const dataProvider = {
     getList:   async (resource, params) => {
-        const data = await axios.get(`${process.env.REACT_APP_API_URL}/api/${resource}/get`)      
-        return {data: data.data, total: data.data.length}
+        try {
+            const data = await apiHost.get(`/${resource}/get`)    
+            return {data: data.data, total: data.data.length}
+        } catch (error) {
+            console.log(error)
+        }
     },
     // get a single record by id
     getOne:     (resource, params) => Promise, 

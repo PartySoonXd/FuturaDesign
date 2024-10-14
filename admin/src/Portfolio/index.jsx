@@ -1,9 +1,8 @@
 import { Title } from "react-admin"
-import axios from "axios"
 import { Masonry } from '@mui/lab'
 import { useState } from "react"
-import { Buffer } from 'buffer';
 import { Notification } from "../Components/Notification/Notification";
+import { apiHost } from "../http";
 
 const Portfolio = () => {
     const [images, setImages] = useState()
@@ -15,50 +14,60 @@ const Portfolio = () => {
 
     const [preview, setPreview] = useState()
 
-    const config = {
-        headers: {
-            "Access-Control-Allow-Credentials": "true",
-            "Access-Control-Allow-Origin": process.env.REACT_APP_ADMIN_URL,
-            "Access-Control-Allow-Methods": "GET,PUT,PATCH,OPTIONS,POST,DELETE",
-            "Access-Control-Max-Age": "86400",
-            "Access-Control-Allow-Headers": "Access-Control-Allow-Methods, Access-Control-Allow-Origin, Access-Control-Allow-Credentials, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Max-Age"
-        }
-    }
     const getPreview = (image) => {
         const blob = URL.createObjectURL(image)
         setPreview(blob)
     }
+
     const fetchImages = async (category) => {
-        await axios.get(`${process.env.REACT_APP_API_URL}/api/portfolio/get?category=${category}`, config).then(data => {
-            setImages(data.data.files)
+        setCategory(category)
+        await apiHost.get(`/portfolio/get-in-category?category=${category}`).then(({data}) => {
+            setImages(data)
         })
     }
+
     const addImage = async (e) => {
         try {
             e.preventDefault()
             const formData = new FormData(e.currentTarget)
-            await axios.post(`${process.env.REACT_APP_API_URL}/api/portfolio/add`, formData, config).then(data => {
+            const data = Object.fromEntries(formData)
+
+            if (data.file.size === 0 || category === null || category === "category") {
                 setIsActive(true)
-                setTitle("Success!")
-                setText("Image was added")
+                setTitle("Error!")
+                setText("File or category is undefined")
+                return
+            }
+
+            await apiHost.post(`/portfolio/create`, data, {
+                headers: {
+                  'content-type': 'multipart/form-data',
+                },
+            }).then(({data}) => {
+                setIsActive(true)
+                setTitle(data.title)
+                setText(data.message)
             })
             fetchImages(category)
         } catch (error) {
             setIsActive(true)
             setTitle("Error!")
-            setText(error.response.data.text)
+            setText("Something wrong! Try later")
         }
     }
+
     const deleteImage = async (name) => {
         try {
-            await axios.delete(`${process.env.REACT_APP_API_URL}/api/portfolio/delete?name=${name}&category=${category}`).then(data => {
+            await apiHost.delete(`/portfolio/delete/${name}?category=${category}`).then(({data}) => {
                 setIsActive(true)
                 setTitle("Success!")
-                setText("Image was deleted")
+                setText(data.message)
             })
             fetchImages(category)
         } catch (error) {
-            console.log(error)
+            setIsActive(true)
+            setTitle("Error!")
+            setText("Something wrong! Try later")
         }
     }
     if (isActive) {
@@ -93,7 +102,7 @@ const Portfolio = () => {
                             <img src="upload-icon.png" alt="upload" />
                             <p>click to choose</p>
                         </label>
-                        <input type="file" name="picture" id="picture" onChange={e => getPreview(e.target.files[0])}/>
+                        <input type="file" name="file" id="picture" onChange={e => getPreview(e.target.files[0])}/>
                         <button type="submit" className="portfolio-form-button" disabled={isActive}>Submit</button>
                     </form>
                 </div>
@@ -117,19 +126,18 @@ const Portfolio = () => {
                 defaultSpacing={0}
             >
                 {Object.keys(images).map((item, i) => {
-                    const base64Image = new Buffer.from(images[item].file.data).toString("base64")
                     return (
                         <div className="portfolio-masonry-image-container" key={i}>
-                            <img src="/delete-icon.png" alt="delete" id={images[item].name} className="portfolio-masonry-delete" onClick={e => deleteImage(e.target.id)}/>
+                            <img src="/delete-icon.png" alt="delete" id={images[item]} className="portfolio-masonry-delete" onClick={e => deleteImage(e.target.id)}/>
                             <img 
                                 className='portfolio-masonry-img' 
-                                src={`data:image/png;base64,${base64Image}`} 
+                                src={`${process.env.REACT_APP_API_URL}static/images/portfolio/${category}/${images[item]}`} 
                                 alt={`${category} image`}
                             />
                         </div>
                     )
                 })}
-            </Masonry>}
+                </Masonry>}
             </div>
         </div>
         </>

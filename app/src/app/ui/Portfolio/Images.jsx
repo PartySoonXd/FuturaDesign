@@ -1,9 +1,8 @@
 import Image from 'next/image'
-import axios from "axios"
 import { Masonry } from '@mui/lab'
 import { useEffect, useState } from 'react'
-import {Buffer} from "buffer"
 import {motion} from "framer-motion"
+import { apiHost } from '@/app/http'
 
 const Images = ({category}) => {
     const [images, setImages] = useState([])
@@ -12,8 +11,8 @@ const Images = ({category}) => {
         const getImages = async () => {
             try {
                 if (category != null) {
-                    const images = await axios.get(`/api/portfolio/get?category=${category}`)
-                    setImages(images.data.files)
+                    const images = await apiHost.get(`/portfolio/get-in-category?category=${category}`)
+                    setImages(images.data)
                 }
             } catch (error) {
                 return error
@@ -21,6 +20,10 @@ const Images = ({category}) => {
         }
         getImages()
     }, [category])
+
+    const imageLoader = ({ src }) => {
+        return `${process.env.NEXT_PUBLIC_API_URL}static/${src}`
+    }
     if (images) {
         return (
             <Masonry
@@ -31,7 +34,6 @@ const Images = ({category}) => {
                 defaultSpacing={0}
             >
                 {Object.keys(images).map((item, i) => {
-                    const base64Image = new Buffer.from(images[item].file.data).toString("base64")
                     return (
                         <motion.div 
                             className="image-container"
@@ -46,9 +48,10 @@ const Images = ({category}) => {
                         >
                             <Image 
                                 className='images-img' 
-                                src={`data:image/png;base64,${base64Image}`} 
-                                width="400" 
-                                height="250" 
+                                loader={imageLoader}
+                                src={`/images/portfolio/${category}/${images[item]}`} 
+                                width={400} 
+                                height={250} 
                                 alt={`${category} image`}
                             />
                         </motion.div>
