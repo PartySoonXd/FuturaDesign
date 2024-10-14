@@ -3,8 +3,7 @@ const router = new Router()
 
 const feedbackController = require('../controllers/FeedbackController')
 
-router.use("/create", feedbackController.create)
-router.use("/get", feedbackController.get)
-
+router.post("/create", feedbackController.create)
+router.get("/get", feedbackController.get)
 
 module.exports = router
