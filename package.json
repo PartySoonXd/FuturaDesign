@@ -8,7 +8,8 @@
     "db": "cd app & npm run db",
     "admin": "cd admin & npm run dev",
     "app": "cd app & npm run dev",
-    "dev": "concurrently \"npm run admin\" \"npm run app\""
+    "server": "cd server & npm run dev",
+    "dev": "concurrently \"npm run admin\" \"npm run app\" \"npm run server\""
   },
   "author": "",
   "license": "ISC",
