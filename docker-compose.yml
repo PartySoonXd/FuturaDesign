@@ -2,7 +2,7 @@ services:
   couch:
     container_name: futura_db
     image: couchdb:latest
-    env_file: /app/.env.local
+    env_file: ./app/.env.local
     volumes:
       - couch_data:/opt/couchdb/data
     ports:
@@ -10,9 +10,9 @@ services:
     restart: on-failure
   
   admin:
-    build: /admin 
+    build: ./admin 
     container_name: futura_admin
-    env_file: /admin/.env.local
+    env_file: ./admin/.env.local
     depends_on: 
       - client
     ports:
@@ -21,14 +21,23 @@ services:
     command: nginx -g 'daemon off;'
 
   client:
-    build: /app
+    build: ./app
     container_name: futura_client
-    env_file: /app/.env.local
+    env_file: ./app/.env.local
     ports:
       - 4000:4000
     depends_on:
       - couch
     restart: on-failure
     command: node server.js
+
+  server:
+    env_file: ./server/.env.local
+    container_name: hist-arts_server
+    build: ./server
+    depends_on:
+      - couch
+    restart: on-failure
+    command: npm run server
 volumes:
   couch_data:
