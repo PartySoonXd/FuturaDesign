@@ -27,7 +27,7 @@ const Sidebar = ({slides, currentSlide}) => {
                         {slides[currentSlide].desription}
                     </p>
                 </div>
-                <ButtonLink text="More works" href="/portfolio?category=wardrobe" customClass="sidebar-button"/>
+                <ButtonLink text="More works" href={`/portfolio?category=${slides[currentSlide].title.toLowerCase()}`} customClass="sidebar-button"/>
             </div>
         </motion.aside>
     )
