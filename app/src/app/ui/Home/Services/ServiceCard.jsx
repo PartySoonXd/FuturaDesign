@@ -10,7 +10,7 @@ const ServiceCard = ({image, title, desription, anim}) => {
             whileInView={anim.show} 
             viewport={{once: true, amount: .35}}
         >
-            <Image src={image} className="service-card-image" alt={title}/>
+            <Image src={image} width={300} height={500} className="service-card-image" alt={title}/>
             <h3 className="service-card-title h3">{title}</h3>
             <div className="service-card-description">
                 {desription.map((element, i) => {
