@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import {motion} from "framer-motion"
 
@@ -24,7 +23,7 @@ const PortfolioItem = ({itemName, image, anim}) => {
                         {itemName}
                     </motion.div>
                     <div style={{overflow: "hidden"}}>
-                        <Image src={image} className="portfolio-item__image" alt={`${itemName}-preview`}/>
+                        <img src={image} className="portfolio-item__image" alt={`${itemName}-preview`}/>
                     </div>
                     <motion.div 
                         className="portfolio-item__button"
