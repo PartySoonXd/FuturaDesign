@@ -6,7 +6,6 @@ import BackgroundSlides from "./BackgroundSlides"
 import {slides} from "./utils.js"
 import SlidesPagination from "./SlidesPagination"
 
-import sidearrowImage from "../../../../../public/images/sidearrow.png"
 import Sidebar from "./Sidebar"
 
 
@@ -63,7 +62,7 @@ const Intro = () => {
                     animate={{opacity: 1}}
                     transition={{duration: .2, delay: 1.2}}
                 >
-                    <Image src={sidearrowImage} className="home-page-intro-sidearrow__image"/>
+                    <Image src="/images/sidearrow.svg" width={12} height={240} className="home-page-intro-sidearrow__image" alt="sidearrow"/>
                     <div className="home-page-intro-sidearrow-text">
                         <span className="home-page-intro-sidearrow-text__element">Make</span>
                         <span className="home-page-intro-sidearrow-text__element yellow-text">Future</span>

@@ -3,10 +3,6 @@ import {motion} from 'framer-motion'
 
 import ButtonLink from "@/app/lib/ButtonLink/ButtonLink"
 
-import firstBenefitIcon from "../../../../../public/images/first-benefit-icon.svg"
-import secondBenefitIcon from "../../../../../public/images/second-benefit-icon.svg"
-import thirdBenefitIcon from "../../../../../public/images/third-benefit-icon.svg"
-
 const About = () => {
     const container = {
         show: { 
@@ -74,19 +70,19 @@ const About = () => {
             >
                 <motion.li className="about-us-benefits__item" variants={item}>
                     <div className="about-us-benefits__item-icon">
-                        <Image src={firstBenefitIcon} alt="benefit"/>
+                        <Image src="/images/first-benefit-icon.svg" width={30} height={30} alt="benefit"/>
                     </div>
                     <div className="about-us-benefits__item-text links">Highly qualified specialists</div>
                 </motion.li>
                 <motion.li className="about-us-benefits__item" variants={item}>
                     <div className="about-us-benefits__item-icon">
-                        <Image src={secondBenefitIcon} alt="benefit"/>
+                        <Image src="/images/second-benefit-icon.svg" width={30} height={30} alt="benefit"/>
                     </div>
                     <div className="about-us-benefits__item-text links">High quality services</div>
                 </motion.li>
                 <motion.li className="about-us-benefits__item" variants={item}>
                     <div className="about-us-benefits__item-icon">
-                        <Image src={thirdBenefitIcon} alt="benefit"/>
+                        <Image src="/images/third-benefit-icon.svg" width={30} height={30} alt="benefit"/>
                     </div>
                     <div className="about-us-benefits__item-text links">Individual design and style</div>
                 </motion.li>

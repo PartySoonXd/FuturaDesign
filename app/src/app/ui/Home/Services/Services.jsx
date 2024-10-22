@@ -2,11 +2,6 @@ import {motion} from 'framer-motion'
 
 import ServiceCard from "./ServiceCard"
 
-import firstService from "../../../../../public/images/first-service.jpg"
-import secondService from "../../../../../public/images/second-service.jpg"
-import thirdService from "../../../../../public/images/third-service.jpg"
-import fourthService from "../../../../../public/images/fourth-service.jpg"
-import fifthService from "../../../../../public/images/fifth-service.jpg"
 import { useRef } from "react"
 
 const Services = ({element}) => {
@@ -42,7 +37,7 @@ const Services = ({element}) => {
                 </motion.h2>
                 <motion.ul className="service-cards">
                     <ServiceCard 
-                        image={firstService} 
+                        image="/images/first-service.webp" 
                         title="Individual interior design" 
                         desription={[
                             'Creation of unique concepts and room layouts',
@@ -51,7 +46,7 @@ const Services = ({element}) => {
                         anim={cardItem}
                     />
                     <ServiceCard 
-                        image={secondService} 
+                        image="/images/second-service.webp"
                         title="Visualization of projects" 
                         desription={[
                             'Creation of photorealistic 3D visualizations for a visual representation of the future interior.',
@@ -59,7 +54,7 @@ const Services = ({element}) => {
                         anim={cardItem}
                     />
                     <ServiceCard 
-                        image={thirdService} 
+                        image="/images/third-service.webp" 
                         title="Purchase and supply of furniture" 
                         desription={[
                             'Assistance in choosing and purchasing furniture, lighting, textiles, and other interior elements.',
@@ -67,7 +62,7 @@ const Services = ({element}) => {
                         anim={cardItem}
                     />
                     <ServiceCard 
-                        image={fourthService} 
+                        image="/images/fourth-service.webp" 
                         title="Consultation on style and colors" 
                         desription={[
                             'Assistance in appropriate interior style and creating a floral palette.',
@@ -75,7 +70,7 @@ const Services = ({element}) => {
                         anim={cardItem}
                     />
                     <ServiceCard 
-                        image={fifthService} 
+                        image="/images/fifth-service.webp" 
                         title="Lighting and electrical planning" 
                         desription={[
                             'Development of an effective lighting system and planning of the indoor electrical network'

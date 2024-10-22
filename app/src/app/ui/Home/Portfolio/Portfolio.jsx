@@ -1,10 +1,5 @@
 import {motion} from "framer-motion"
 
-import kitchenPreview from "../../../../../public/images/kitchen-preview.jpg"
-import wardrobePreview from "../../../../../public/images/wardrobe-preview.jpg"
-import bedroomPreview from "../../../../../public/images/bedroom-preview.jpg"
-import bathroomPreview from "../../../../../public/images/bathroom-preview.jpg"
-import loungePreview from "../../../../../public/images/lounge-preview.jpg"
 import PortfolioItem from "./PortfolioItem"
 
 const Portfolio = () => {
@@ -53,17 +48,17 @@ const Portfolio = () => {
                 variants={portfolioContainer}
                 whileInView="show"
                 viewport={{once: true}}
-                >
+            >
                 <motion.ul
                     className="portfolio-items" 
                     variants={portfolioList}
                     initial="hidden"
                     whileInView="show"
                     viewport={{once: true}}
-                    >
-                    <PortfolioItem itemName="kitchen" image={kitchenPreview} anim={portfolioItem}/>
-                    <PortfolioItem itemName="wardrobe" image={wardrobePreview} anim={portfolioItem}/>
-                    <PortfolioItem itemName="bedroom" image={bedroomPreview} anim={portfolioItem}/>
+                >
+                    <PortfolioItem itemName="kitchen" image="/images/kitchen-preview.jpg" anim={portfolioItem}/>
+                    <PortfolioItem itemName="wardrobe" image="/images/wardrobe-preview.jpg" anim={portfolioItem}/>
+                    <PortfolioItem itemName="bedroom" image="/images/bedroom-preview.jpg" anim={portfolioItem}/>
                 </motion.ul>
                 <motion.ul 
                     className="portfolio-items"
@@ -72,8 +67,8 @@ const Portfolio = () => {
                     whileInView="show"
                     viewport={{once: true}}
                 >
-                    <PortfolioItem itemName="bathroom" image={bathroomPreview} anim={portfolioItem}/>
-                    <PortfolioItem itemName="lounge" image={loungePreview} anim={portfolioItem}/>
+                    <PortfolioItem itemName="bathroom" image="/images/bathroom-preview.jpg" anim={portfolioItem}/>
+                    <PortfolioItem itemName="lounge" image="/images/lounge-preview.jpg" anim={portfolioItem}/>
                 </motion.ul>
             </motion.div>
         </div>

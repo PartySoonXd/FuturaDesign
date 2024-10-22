@@ -14,7 +14,7 @@ const TeamItem = ({teammateName, profession, description, image}) => {
             viewport={{once: true, amount: .4}}
         >
             <div className="team-item-card">
-                <Image src={image} alt={teammateName} className="team-item-card__image"/>
+                <Image src={image} width={300} height={400} alt={teammateName} className="team-item-card__image"/>
                 <div className="team-item-card__info">
                     <h3 className="team-item-card__info-name h3">{teammateName}</h3>
                     <p className="team-item-card__info-profession p">{profession}</p>
