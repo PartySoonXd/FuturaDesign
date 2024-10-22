@@ -12,6 +12,7 @@ const BackgroundSlides = ({currentSlide, slides}) => {
                 return (
                     <img 
                         src={slides[item].imagePath} 
+                        alt={slides[item].title}
                         key={i} 
                         className={`background-slides__image ${currentSlide === i ? "active": "inactive"}`} 
                     />
