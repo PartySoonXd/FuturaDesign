@@ -37,13 +37,6 @@
         &-container {
             width: 100%;
             position: relative;
-            &:hover {
-                .portfolio-item__title,
-                .portfolio-item__button {
-                    opacity: 0;
-                    transition: opacity .6s ease;
-                }
-            }
         }
         &__title {
             display: flex;
@@ -57,7 +50,7 @@
             justify-content: center;
             
             color: $white;
-            background: #303030b3;
+            background: rgba($black, .7);
             
             font-family: Quicksand;
             font-size: 20px;
@@ -73,7 +66,7 @@
             bottom: 0;
             z-index: 1;
             
-            background: #303030b3;
+            background: rgba($black, .7);
             
             clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
             svg {
@@ -93,8 +86,8 @@
             transform: scale(1);
             transition: transform .6s ease;
             &:hover {
-                transform: scale(1.03);
-                transition: transform 1s ease;
+                transform: scale(1.05);
+                transition: transform .8s ease;
             }
         }
         &.kitchen, &.bathroom {

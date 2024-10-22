@@ -9,7 +9,7 @@
     cursor: pointer;
     &::after {
         content: "";
-        width: 100%;
+        width: 150px;
         height: 100%;
 
         position: absolute;
@@ -23,6 +23,12 @@
         
         opacity: 0;
         transition: opacity .3s ease;
+        @include media($xs-breakpoint) {
+            padding: 5px 35px;
+        }
+    }
+    @include media($xs-breakpoint) {
+        margin: 10px 35px;
     }
     &.active {
         &::after {

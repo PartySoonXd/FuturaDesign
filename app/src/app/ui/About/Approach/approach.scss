@@ -28,9 +28,10 @@
         margin: 0 -15px;
     }
     &-item {
-        width: calc(100%/3 - 30px);
+        max-width: 600px;
+        width: calc(100% / 3 - 30px);
         
-        flex: 1 1 415px;
+        flex: 1 1 435px;
         margin: 0 15px 15px 15px;
         &__text {
             display: flex;
