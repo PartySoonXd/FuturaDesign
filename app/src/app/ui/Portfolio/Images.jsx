@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Masonry } from '@mui/lab'
 import { useEffect, useState } from 'react'
-import {motion} from "framer-motion"
 import { apiHost } from '@/app/http'
 
 const Images = ({category}) => {
@@ -35,7 +34,7 @@ const Images = ({category}) => {
             >
                 {Object.keys(images).map((item, i) => {
                     return (
-                        <motion.div 
+                        <div 
                             className="image-container"
                             initial={{opacity: 0, y: "50px"}}
                             whileInView={{opacity: 1, y: 0}}
@@ -54,7 +53,7 @@ const Images = ({category}) => {
                                 height={250} 
                                 alt={`${category} image`}
                             />
-                        </motion.div>
+                        </div>
                     )
                 })}
             </Masonry>
