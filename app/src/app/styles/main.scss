@@ -7,6 +7,7 @@
 @import "../lib/Footer/footer.scss";
 @import "../lib/ButtonLink/button-link.scss";
 @import "../lib/Notification/notification.scss";
+@import "../lib/PortfolioProjectWarning/portfolio-project-warning.scss";
 
 @import "../ui/Home/Intro/intro.scss";
 @import "../ui/Home/About/about.scss";
@@ -17,4 +18,5 @@
 @import "../ui/About/Approach/approach.scss";
 @import "../ui/About/Team/team.scss";
 
-@import "../ui/Portfolio/image-gallery.scss";
+@import "../ui/Portfolio/CategorySelector/category-selector.scss";
+@import "../ui/Portfolio/Images/portfolio-images.scss";
