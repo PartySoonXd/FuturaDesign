@@ -1,13 +1,15 @@
 
 import PageLayout from "../layout"
 import PageTitle from "@/app/lib/PageTitle/PageTitle"
-import Portfolio from "@/app/ui/Portfolio/Portfolio"
+import CategorySelector from "@/app/ui/Portfolio/CategorySelector/CategorySelector"
+import PortfolioMasonry from "@/app/ui/Portfolio/Images/PortfolioImages"
 
 const PortfolioPage = () => {
     return (
         <PageLayout>
             <PageTitle title="Portfolio"/>
-            <Portfolio/>
+            <CategorySelector/>
+            <PortfolioMasonry/>
         </PageLayout>
     )
 }

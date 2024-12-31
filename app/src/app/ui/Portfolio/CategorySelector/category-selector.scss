@@ -5,11 +5,13 @@
     align-items: center;
     justify-content: center;
 
-    margin: 15px 45px;
     cursor: pointer;
+    margin: 15px 45px;
+
+    text-transform: capitalize;
     &::after {
         content: "";
-        width: 150px;
+        width: 100%;
         height: 100%;
 
         position: absolute;
@@ -31,6 +33,7 @@
         margin: 10px 35px;
     }
     &.active {
+        pointer-events: none;
         &::after {
             opacity: 1;
             transition: opacity .3s ease;
@@ -60,31 +63,6 @@
     @include media($m-breakpoint) {
         &-selector {
             position: static;
-        }
-    }
-}
-
-.images {
-    &-img {
-        width: 100%;
-        height: auto;
-        
-        object-fit: contain;
-    }
-}
-
-.image-gallery {
-    margin: 0 -60px;
-}
-.MuiMasonry-root {
-    div {
-        width: calc(100% / 3 - 11px);
-        height: auto;
-        @include media($m-breakpoint) {
-            width: calc(100% / 2 - 8px);
-        }
-        @include media($xs-breakpoint) {
-            width: 100%;
         }
     }
 }
