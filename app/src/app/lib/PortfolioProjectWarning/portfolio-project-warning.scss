@@ -1,0 +1,15 @@
+.warning {
+    padding: 10px;
+
+    background: $black;
+
+    z-index: 101;
+    &-text {
+        text-align: center;
+
+        font-weight: 400;
+        font-size: 18px;
+        
+        color: $white;
+    }
+}
